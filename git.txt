@@ -1,1 +1,79 @@
-whmcquay02@hotmail.com
+C:\Program Files\Git
+
+
+git config --global user.name "yanxuefengyan02"
+git config --global user.email "whmcquay02@hotmail.com"
+
+4:查看E:\Users\YANQUN\.gitconfig
+
+5:
+现在本地生成ssh：
+ssh-keygen -t rsa -C whmcquay02@hotmail.com // 一直回车
+
+
+搭建git服务器（远程仓库） ：统一的托管网站（https://github.com/）
+
+为了 在本地 和远程仓库之间进行 免密钥登录，可以配置ssh 
+
+ssh:本地-远程
+配置ssh：先在本地配置，发送给远程
+
+现在本地生成ssh：
+ssh-keygen -t rsa -C whmcquay02@hotmail.com  一直回车
+
+6:发送给远程：
+github - settings - SSH and ... - New SSH  - title任意、key中输入 刚才在本地生成的ssh：
+将本地刚才生成的id_rsa.pub内容复制到远程的Key中
+打开路径 E:\Users\administrator\.ssh
+
+
+
+7:测试连通性：
+ssh -T git@github.com
+ssh -T 13.229.188.59
+
+
+
+
+本地项目-远程项目关联
+git remote add origin git@github.com:yanxuefengyan02/test.git
+
+git remote add origin https://github.com/yanxuefengyan02/test.git
+
+
+第一次发布项目 （本地-远程）
+git add .      //文件-暂存区
+git commit -m "注释内容"  //暂存区-本地分支（默认master）
+git push -u origin master
+
+
+第一次下载项目（远程-本地）
+git clone git@github.com:yanqun/mygitremote.git
+
+提交(本地-远程)
+(在当前工作目录 右键-git bash)
+git add.
+git commit -m "提交到分支"
+git push  origin master
+
+
+更新(远程-本地)
+git pull
+
+
+
+
+------github 上
+…or create a new repository on the command line
+echo "# test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/yanxuefengyan02/test.git
+git push -u origin master
+                
+…or push an existing repository from the command line
+git remote add origin https://github.com/yanxuefengyan02/test.git
+git branch -M master
+git push -u origin master
